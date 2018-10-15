@@ -14,7 +14,7 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php -r "unlink('composer-setup.php');" \
     && mv composer.phar /usr/local/bin/composer
 
-RUN chsh -s /bin/bash www-data && usermod -m -d /home/www-data www-data && mkdir /var/run/sshd
+RUN chsh -s /bin/bash www-data && usermod -m -d /home/www-data www-data && mkdir /var/run/sshd \
         && sed -i '11 a PermitRootLogin no' /etc/ssh/sshd_config \
         && sed -i 's|#AuthorizedKeysFile\s.ssh/authorized_keys\s.ssh/authorized_keys2|AuthorizedKeysFile .ssh/authorized_keys /etc/ssh/authorized_keys/%u|' /etc/ssh/sshd_config \
         && sed -i 's|#PasswordAuthentication\syes|PasswordAuthentication no|' /etc/ssh/sshd_config
