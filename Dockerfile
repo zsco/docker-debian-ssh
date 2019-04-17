@@ -1,6 +1,6 @@
 FROM debian:stretch
 
-RUN apt-get update && apt-get upgrade -y && apt-get install -y openssh-server openssl mysql-client apt-transport-https lsb-release ca-certificates wget git
+RUN apt-get update && apt-get upgrade -y && apt-get install -y openssh-server openssl mysql-client apt-transport-https lsb-release ca-certificates wget git unzip
 
 RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 
